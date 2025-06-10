@@ -67,7 +67,7 @@
 
         .container {
             max-width: 400px;
-            height: 794px;
+            height: 829px;
             margin: 0 auto;
             padding: 0 15px;
             background-color: black;

@@ -428,7 +428,8 @@
                             <input type="text" name="facebook" placeholder="Facebook URL" class="form-control mb-2">
                             <input type="hidden" name="selected_template" id="selected_template" value="1">
                             <div class="d-flex gap-2">
-                                <button type="submit" class="btn btn-primary" onclick="setFormAction('pdf')">Download as PDF</button>
+                                <button type="submit" class="btn btn-primary" onclick="setFormAction('pdf')">Download as
+                                    PDF</button>
                                 <button type="button" class="btn btn-success" id="getLinkBtn">Get Link</button>
                             </div>
                         </form>
@@ -443,7 +444,26 @@
                     </div>
                     <div class="card-body">
                         <!-- Template Selector -->
-                        <div class="mb-3">
+                        <b> <p>Select Your Desired Template,</p></b>
+                        <div class="mb-3 d-flex gap-3">
+                            
+    <div>
+        <label for="tabletTemplateSelector" class="form-label"><b> For Tablet</b></label>
+        <select id="tabletTemplateSelector" class="form-control w-100">
+            <option value="1">Template 1</option>
+            <option value="2">Template 2</option>
+            <option value="3">Template 3</option>
+        </select>
+    </div>
+    <div>
+        <label for="mobileTemplateSelector" class="form-label"><b>For Mobile</b></label>
+        <select id="mobileTemplateSelector" class="form-control w-100">
+            <option value="4">Template 1</option>
+            <option value="5">Template 2</option>
+        </select>
+    </div>
+</div>
+                        {{--  <div class="mb-3">
                             <label for="templateSelector" class="form-label">Select Template</label>
                             <select id="templateSelector" class="form-control w-50">
                                 <option value="1">Template 1</option>
@@ -452,10 +472,9 @@
                                 <option value="4">Template 4 </option>
                                 <option value="5">Template 5 </option>
                             </select>
-                        </div>
+                        </div>  --}}
                         <!-- Template 1: Default -->
-                        <div id="template1" class="card-container template-preview d-none "
-                            style="background-color: #f9f9f9;">
+                        <div id="template1" class="card-container template-preview  d-none" style="background-color: #f9f9f9;">
                             <div class="left">
                                 <div class="qr">
                                     <img src="{{ asset('storage/qrcodes/' . $user->qr_code_filename) }}" alt="QR code"
@@ -560,7 +579,7 @@
                             </div>
                         </div>
                         <!-- Template 4: -->
-                        
+
                         {{--  <div id="template4" class="card-container template-preview d-none">
                             <img src="{{ $data['profile_image'] ?? asset('images/default-profile.png') }}" alt="Profile"
                                 id="t4ProfileImg" style="display:none;">
@@ -616,32 +635,62 @@
                                 <div id="t4Dots"></div>
                             </div>
                         </div>  --}}
-                       
-<div id="template4" class="template-preview card-container d-none"
-    style="background: radial-gradient(circle at 20% 10%, #6dd5ed 0%, #b24592 60%, #000 100%); width:260px; min-height:420px; padding:32px 16px 24px 16px; display:flex; flex-direction:column; align-items:center; position:relative; overflow:hidden; border-radius:18px; box-shadow:0 4px 16px rgba(44,62,80,0.18); margin:auto;">
-    <!-- Top-half background image -->
-    <div style="position:absolute; left:0; top:0; width:100%; height:17%; background: url('{{ asset('images/templates/t1.jpg') }}') center top/cover no-repeat; z-index:1; pointer-events:none;"></div>
-    <!-- Profile Image -->
-    <div style="margin-top:40px; margin-bottom:18px; display:flex; justify-content:center; align-items:center; z-index:2;">
-        <img src="#" alt="Profile Image" class="previewQR" style="width:90px; height:90px; border-radius:50%; object-fit:cover; border:4px solid #fff; box-shadow:0 2px 8px rgba(0,0,0,0.18); background:#fff; display:none;">
-    </div>
-    <div class="previewName" style="font-size:1.4rem; font-weight:700; color:#fff; text-align:center; margin-bottom:4px; text-shadow:0 2px 8px rgba(0,0,0,0.18); z-index:2;">Your Name</div>
-    <div class="previewCompany" style="color:#f3f6fa; text-align:center; font-size:1rem; margin-bottom:4px; letter-spacing:0.5px; z-index:2;">Company Profile</div>
-    <div class="previewSlogan" style="color:rgb(228,26,120); text-align:center; font-size:0.95rem; margin-bottom:18px; z-index:2;"><b>Your Company Slogan</b></div>
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; justify-content:center; margin:0 auto 18px auto; z-index:2;">
-        <a href="#" class="previewMobile" title="Call" style="width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; font-size:1.5rem; color:#fff; border:2px solid rgba(255,255,255,0.18); box-shadow:0 2px 8px rgba(0,0,0,0.10); cursor:pointer; text-decoration:none; display:none;"><i class="fa-solid fa-phone"></i></a>
-        <a href="#" class="previewEmail" title="Email" style="width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; font-size:1.5rem; color:#6dd5ed; border:2px solid rgba(255,255,255,0.18); box-shadow:0 2px 8px rgba(0,0,0,0.10); cursor:pointer; text-decoration:none; display:none;"><i class="fa-solid fa-envelope"></i></a>
-        <a href="#" class="previewAddress" title="Address" target="_blank" style="width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.08); display:none; align-items:center; justify-content:center; font-size:1.5rem; color:#f59e42; border:2px solid rgba(255,255,255,0.18); box-shadow:0 2px 8px rgba(0,0,0,0.10); cursor:pointer; text-decoration:none;"><i class="fa-solid fa-location-dot"></i></a>
-        <a href="#" class="previewWebsite" title="Website" target="_blank" style="width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.08); display:none; align-items:center; justify-content:center; font-size:1.5rem; color:#4f8cff; border:2px solid rgba(255,255,255,0.18); box-shadow:0 2px 8px rgba(0,0,0,0.10); cursor:pointer; text-decoration:none;"><i class="fa-solid fa-globe"></i></a>
-        <a href="#" class="linkInstagram" title="Instagram" target="_blank" style="width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.08); display:none; align-items:center; justify-content:center; font-size:1.5rem; color:#e1306c; border:2px solid rgba(255,255,255,0.18); box-shadow:0 2px 8px rgba(0,0,0,0.10); cursor:pointer; text-decoration:none;"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" class="linkFacebook" title="Facebook" target="_blank" style="width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.08); display:none; align-items:center; justify-content:center; font-size:1.5rem; color:#1877f3; border:2px solid rgba(255,255,255,0.18); box-shadow:0 2px 8px rgba(0,0,0,0.10); cursor:pointer; text-decoration:none;"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#" class="linkTwitter" title="Twitter" target="_blank" style="width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.08); display:none; align-items:center; justify-content:center; font-size:1.5rem; color:#1da1f2; border:2px solid rgba(255,255,255,0.18); box-shadow:0 2px 8px rgba(0,0,0,0.10); cursor:pointer; text-decoration:none;"><i class="fa-brands fa-twitter"></i></a>
-        <a href="#" class="linkLinkedin" title="LinkedIn" target="_blank" style="width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.08); display:none; align-items:center; justify-content:center; font-size:1.5rem; color:#0077b5; border:2px solid rgba(255,255,255,0.18); box-shadow:0 2px 8px rgba(0,0,0,0.10); cursor:pointer; text-decoration:none;"><i class="fa-brands fa-linkedin"></i></a>
-    </div>
-    <div style="position:absolute; left:0; right:0; bottom:0; height:28px; background:none; pointer-events:none; z-index:2;">
-        <div style="width:100%; height:100%; background:radial-gradient(circle, #6dd5ed 1.5px, transparent 2px); background-size:12px 12px; opacity:0.5; filter:blur(1.5px);"></div>
-    </div>
-</div>
+
+                        <div id="template4" class="template-preview card-container d-none"
+                            style="background: radial-gradient(circle at 20% 10%, #6dd5ed 0%, #b24592 60%, #000 100%); width:260px; min-height:420px; padding:32px 16px 24px 16px; display:flex; flex-direction:column; align-items:center; position:relative; overflow:hidden; border-radius:18px; box-shadow:0 4px 16px rgba(44,62,80,0.18); margin:auto;">
+                            <!-- Top-half background image -->
+                            <div
+                                style="position:absolute; left:0; top:0; width:100%; height:17%; background: url('{{ asset('images/templates/t1.jpg') }}') center top/cover no-repeat; z-index:1; pointer-events:none;">
+                            </div>
+                            <!-- Profile Image -->
+                            <div
+                                style="margin-top:40px; margin-bottom:18px; display:flex; justify-content:center; align-items:center; z-index:2;">
+                                <img src="#" alt="Profile Image" class="previewQR"
+                                    style="width:90px; height:90px; border-radius:50%; object-fit:cover; border:4px solid #fff; box-shadow:0 2px 8px rgba(0,0,0,0.18); background:#fff; display:none;">
+                            </div>
+                            <div class="previewName"
+                                style="font-size:1.4rem; font-weight:700; color:#fff; text-align:center; margin-bottom:4px; text-shadow:0 2px 8px rgba(0,0,0,0.18); z-index:2;">
+                                Your Name</div>
+                            <div class="previewCompany"
+                                style="color:#f3f6fa; text-align:center; font-size:1rem; margin-bottom:4px; letter-spacing:0.5px; z-index:2;">
+                                Company Profile</div>
+                            <div class="previewSlogan"
+                                style="color:rgb(228,26,120); text-align:center; font-size:0.95rem; margin-bottom:18px; z-index:2;">
+                                <b>Your Company Slogan</b></div>
+                            <div
+                                style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; justify-content:center; margin:0 auto 18px auto; z-index:2;">
+                                <a href="#" class="previewMobile" title="Call"
+                                    style="width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; font-size:1.5rem; color:#fff; border:2px solid rgba(255,255,255,0.18); box-shadow:0 2px 8px rgba(0,0,0,0.10); cursor:pointer; text-decoration:none; display:none;"><i
+                                        class="fa-solid fa-phone"></i></a>
+                                <a href="#" class="previewEmail" title="Email"
+                                    style="width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; font-size:1.5rem; color:#6dd5ed; border:2px solid rgba(255,255,255,0.18); box-shadow:0 2px 8px rgba(0,0,0,0.10); cursor:pointer; text-decoration:none; display:none;"><i
+                                        class="fa-solid fa-envelope"></i></a>
+                                <a href="#" class="previewAddress" title="Address" target="_blank"
+                                    style="width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.08); display:none; align-items:center; justify-content:center; font-size:1.5rem; color:#f59e42; border:2px solid rgba(255,255,255,0.18); box-shadow:0 2px 8px rgba(0,0,0,0.10); cursor:pointer; text-decoration:none;"><i
+                                        class="fa-solid fa-location-dot"></i></a>
+                                <a href="#" class="previewWebsite" title="Website" target="_blank"
+                                    style="width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.08); display:none; align-items:center; justify-content:center; font-size:1.5rem; color:#4f8cff; border:2px solid rgba(255,255,255,0.18); box-shadow:0 2px 8px rgba(0,0,0,0.10); cursor:pointer; text-decoration:none;"><i
+                                        class="fa-solid fa-globe"></i></a>
+                                <a href="#" class="linkInstagram" title="Instagram" target="_blank"
+                                    style="width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.08); display:none; align-items:center; justify-content:center; font-size:1.5rem; color:#e1306c; border:2px solid rgba(255,255,255,0.18); box-shadow:0 2px 8px rgba(0,0,0,0.10); cursor:pointer; text-decoration:none;"><i
+                                        class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="linkFacebook" title="Facebook" target="_blank"
+                                    style="width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.08); display:none; align-items:center; justify-content:center; font-size:1.5rem; color:#1877f3; border:2px solid rgba(255,255,255,0.18); box-shadow:0 2px 8px rgba(0,0,0,0.10); cursor:pointer; text-decoration:none;"><i
+                                        class="fa-brands fa-facebook-f"></i></a>
+                                <a href="#" class="linkTwitter" title="Twitter" target="_blank"
+                                    style="width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.08); display:none; align-items:center; justify-content:center; font-size:1.5rem; color:#1da1f2; border:2px solid rgba(255,255,255,0.18); box-shadow:0 2px 8px rgba(0,0,0,0.10); cursor:pointer; text-decoration:none;"><i
+                                        class="fa-brands fa-twitter"></i></a>
+                                <a href="#" class="linkLinkedin" title="LinkedIn" target="_blank"
+                                    style="width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.08); display:none; align-items:center; justify-content:center; font-size:1.5rem; color:#0077b5; border:2px solid rgba(255,255,255,0.18); box-shadow:0 2px 8px rgba(0,0,0,0.10); cursor:pointer; text-decoration:none;"><i
+                                        class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                            <div
+                                style="position:absolute; left:0; right:0; bottom:0; height:28px; background:none; pointer-events:none; z-index:2;">
+                                <div
+                                    style="width:100%; height:100%; background:radial-gradient(circle, #6dd5ed 1.5px, transparent 2px); background-size:12px 12px; opacity:0.5; filter:blur(1.5px);">
+                                </div>
+                            </div>
+                        </div>
 
                         <!-- Template 5: -->
                         {{--  <div id="template5" class="card-container template-preview "style="width:100%; height:auto; overflow:hidden; position:relative;">
@@ -873,127 +922,175 @@
 
                         </div>  --}}
 
-<!-- filepath: c:\wamp64\www\visitingcard\resources\views\user\dashboard.blade.php -->
-<div id="template5" class="dash-template5 template-preview"
-    style="margin:0; width:230px; height:auto; overflow:hidden; background-color:black; color:white; font-family:Arial, sans-serif; text-align:center; border-radius:14px; box-shadow:0 2px 10px rgba(0,0,0,0.18); ">
-    <!-- Banner Image (shorter) -->
-    <div style="width:100%; height:70px; overflow:hidden; position:relative; ">
-        <img src="{{ asset($data['banner'] ?? 'images/templates/t1.jpg') }}"
-            style="width:100%; max-width:350px; max-height:70px; display:block; margin:0 auto; opacity:.5; object-fit:cover;">
-    </div>
-    <!-- Profile Image (smaller) -->
- 
-<div style="margin-top:-32px; position:relative;">
-  
-    <img src="#"   class="previewQR" style=" width:56px; height:56px; border-radius:50%; border:3px solid black; object-fit:cover; margin:0 auto 8px auto; display:none;">
-</div>
-    <!-- Name & Tagline -->
-    <h1 class="previewName" style="margin:8px 0 0 0; font-size:18px; letter-spacing:1px; text-transform:uppercase;">
-        Your Name</h1>
-    <p class="previewCompany" style="margin:2px 0 0 0; font-size:12px; color:#ccc; text-transform:uppercase;">
-        Company Profile</p>
-    <p class="previewSlogan" style="margin:0 0 10px 0; font-size:12px; color:#e41a78; text-transform:uppercase;">
-        <b>Your Company Slogan</b></p>
-    <!-- Icon Links: 3 per row -->
-    <div style="display:flex; justify-content:center; gap:18px; max-width:320px; margin:0 auto 0 auto;">
-        <!-- Call Me -->
-        <div style="text-align:center;">
-            <div style="width:36px; height:36px; border:1px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto;">
-                <a href="#" class="previewMobile" style="color:white; font-size:16px; text-decoration:none;"><i class="fas fa-phone"></i></a>
-            </div>
-            <p style="margin-top:4px; font-size:10px;">Call</p>
-        </div>
-        <!-- Email -->
-        <div style="text-align:center;">
-            <div style="width:36px; height:36px; border:1px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto;">
-                <a href="#" class="previewEmail" style="color:white; font-size:16px; text-decoration:none;"><i class="fa-solid fa-envelope"></i></a>
-            </div>
-            <p style="margin-top:4px; font-size:10px;">Email</p>
-        </div>
-        <!-- Address -->
-        <div style="text-align:center;">
-            <div style="width:36px; height:36px; border:1px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto;">
-                <a href="#" class="previewAddress" style="color:white; font-size:16px; text-decoration:none;" target="_blank"><i class="fa-solid fa-location-dot"></i></a>
-            </div>
-            <p style="margin-top:4px; font-size:10px;">Address</p>
-        </div>
-    </div>
-    <div style="display:flex; justify-content:center; gap:18px; max-width:320px; margin:8px auto 0 auto;">
-        <!-- Website -->
-        <div style="text-align:center;">
-            <div style="width:36px; height:36px; border:1px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto;">
-                <a href="#" class="previewWebsite" style="color:white; font-size:16px; text-decoration:none;" target="_blank"><i class="fa-solid fa-globe"></i></a>
-            </div>
-            <p style="margin-top:4px; font-size:10px;">Web</p>
-        </div>
-        <!-- Instagram -->
-        <div style="text-align:center;">
-            <div style="width:36px; height:36px; border:1px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto;">
-                <a href="#" class="linkInstagram" style="color:white; font-size:16px; text-decoration:none; display:none;" target="_blank"><i class="fab fa-instagram text-2xl"></i></a>
-            </div>
-            <p style="margin-top:4px; font-size:10px;">Instagram</p>
-        </div>
-        <!-- Facebook -->
-        <div style="text-align:center;">
-            <div style="width:36px; height:36px; border:1px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto;">
-                <a href="#" class="linkFacebook" style="color:white; font-size:16px; text-decoration:none; display:none;" target="_blank"><i class="fab fa-facebook-f text-2xl"></i></a>
-            </div>
-            <p style="margin-top:4px; font-size:10px;">Facebook</p>
-        </div>
-    </div>
-    <div style="display:flex; justify-content:center; gap:18px; max-width:320px; margin:8px auto 0 auto;">
-        <!-- Twitter -->
-        <div style="text-align:center;">
-            <div style="width:36px; height:36px; border:1px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto;">
-                <a href="#" class="linkTwitter" style="color:white; font-size:16px; text-decoration:none; display:none;" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-            </div>
-            <p style="margin-top:4px; font-size:10px;">Twitter</p>
-        </div>
-        <!-- LinkedIn -->
-        <div style="text-align:center;">
-            <div style="width:36px; height:36px; border:1px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto;">
-                <a href="#" class="linkLinkedin" style="color:white; font-size:16px; text-decoration:none; display:none;" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-            </div>
-            <p style="margin-top:4px; font-size:10px;">LinkedIn</p>
-        </div>
-        <div style="text-align:center;">
-            <div style="width:36px; height:36px; border:1px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto;">
-                <a href="#" class="linkLinkedin" style="color:white; font-size:16px; text-decoration:none; display:none;" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-            </div>
-            <p style="margin-top:4px; font-size:10px;">WhatsApp</p>
-        </div>
-    </div>
-</div>
+                        <!-- filepath: c:\wamp64\www\visitingcard\resources\views\user\dashboard.blade.php -->
+                        <div id="template5" class="dash-template5 template-preview d-none"
+                            style="margin:0; width:230px; height:auto; overflow:hidden; background-color:black; color:white; font-family:Arial, sans-serif; text-align:center; border-radius:14px; box-shadow:0 2px 10px rgba(0,0,0,0.18); ">
+                            <!-- Banner Image (shorter) -->
+                            <div style="width:100%; height:70px; overflow:hidden; position:relative; ">
+                                <img src="{{ asset($data['banner'] ?? 'images/templates/t1.jpg') }}"
+                                    style="width:100%; max-width:350px; max-height:70px; display:block; margin:0 auto; opacity:.5; object-fit:cover;">
+                            </div>
+                            <!-- Profile Image (smaller) -->
+
+                            <div style="margin-top:-32px; position:relative;">
+
+                                <img src="#" class="previewQR"
+                                    style=" width:56px; height:56px; border-radius:50%; border:3px solid black; object-fit:cover; margin:0 auto 8px auto; display:none;">
+                            </div>
+                            <!-- Name & Tagline -->
+                            <h1 class="previewName"
+                                style="margin:8px 0 0 0; font-size:18px; letter-spacing:1px; text-transform:uppercase;">
+                                Your Name</h1>
+                            <p class="previewCompany"
+                                style="margin:2px 0 0 0; font-size:12px; color:#ccc; text-transform:uppercase;">
+                                Company Profile</p>
+                            <p class="previewSlogan"
+                                style="margin:0 0 10px 0; font-size:12px; color:#e41a78; text-transform:uppercase;">
+                                <b>Your Company Slogan</b>
+                            </p>
+                            <!-- Icon Links: 3 per row -->
+                            <div
+                                style="display:flex; justify-content:center; gap:18px; max-width:320px; margin:0 auto 0 auto;">
+                                <!-- Call Me -->
+                                <div style="text-align:center;">
+                                    <div
+                                        style="width:36px; height:36px; border:1px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto;">
+                                        <a href="#" class="previewMobile"
+                                            style="color:white; font-size:16px; text-decoration:none;"><i
+                                                class="fas fa-phone"></i></a>
+                                    </div>
+                                    <p style="margin-top:4px; font-size:10px;">Call</p>
+                                </div>
+                                <!-- Email -->
+                                <div style="text-align:center;">
+                                    <div
+                                        style="width:36px; height:36px; border:1px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto;">
+                                        <a href="#" class="previewEmail"
+                                            style="color:white; font-size:16px; text-decoration:none;"><i
+                                                class="fa-solid fa-envelope"></i></a>
+                                    </div>
+                                    <p style="margin-top:4px; font-size:10px;">Email</p>
+                                </div>
+                                <!-- Address -->
+                                <div style="text-align:center;">
+                                    <div
+                                        style="width:36px; height:36px; border:1px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto;">
+                                        <a href="#" class="previewAddress"
+                                            style="color:white; font-size:16px; text-decoration:none;" target="_blank"><i
+                                                class="fa-solid fa-location-dot"></i></a>
+                                    </div>
+                                    <p style="margin-top:4px; font-size:10px;">Address</p>
+                                </div>
+                            </div>
+                            <div
+                                style="display:flex; justify-content:center; gap:18px; max-width:320px; margin:8px auto 0 auto;">
+                                <!-- Website -->
+                                <div style="text-align:center;">
+                                    <div
+                                        style="width:36px; height:36px; border:1px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto;">
+                                        <a href="#" class="previewWebsite"
+                                            style="color:white; font-size:16px; text-decoration:none;" target="_blank"><i
+                                                class="fa-solid fa-globe"></i></a>
+                                    </div>
+                                    <p style="margin-top:4px; font-size:10px;">Web</p>
+                                </div>
+                                <!-- Instagram -->
+                                <div style="text-align:center;">
+                                    <div
+                                        style="width:36px; height:36px; border:1px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto;">
+                                        <a href="#" class="linkInstagram"
+                                            style="color:white; font-size:16px; text-decoration:none; display:none;"
+                                            target="_blank"><i class="fab fa-instagram text-2xl"></i></a>
+                                    </div>
+                                    <p style="margin-top:4px; font-size:10px;">Instagram</p>
+                                </div>
+                                <!-- Facebook -->
+                                <div style="text-align:center;">
+                                    <div
+                                        style="width:36px; height:36px; border:1px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto;">
+                                        <a href="#" class="linkFacebook"
+                                            style="color:white; font-size:16px; text-decoration:none; display:none;"
+                                            target="_blank"><i class="fab fa-facebook-f text-2xl"></i></a>
+                                    </div>
+                                    <p style="margin-top:4px; font-size:10px;">Facebook</p>
+                                </div>
+                            </div>
+                            <div
+                                style="display:flex; justify-content:center; gap:18px; max-width:320px; margin:8px auto 0 auto;">
+                                <!-- Twitter -->
+                                <div style="text-align:center;">
+                                    <div
+                                        style="width:36px; height:36px; border:1px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto;">
+                                        <a href="#" class="linkTwitter"
+                                            style="color:white; font-size:16px; text-decoration:none; display:none;"
+                                            target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                                    </div>
+                                    <p style="margin-top:4px; font-size:10px;">Twitter</p>
+                                </div>
+                                <!-- LinkedIn -->
+                                <div style="text-align:center;">
+                                    <div
+                                        style="width:36px; height:36px; border:1px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto;">
+                                        <a href="#" class="linkLinkedin"
+                                            style="color:white; font-size:16px; text-decoration:none; display:none;"
+                                            target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                                    </div>
+                                    <p style="margin-top:4px; font-size:10px;">LinkedIn</p>
+                                </div>
+                                <div style="text-align:center;">
+                                    <div
+                                        style="width:36px; height:36px; border:1px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto;">
+                                        <a href="#" class="linkLinkedin"
+                                            style="color:white; font-size:16px; text-decoration:none; display:none;"
+                                            target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                                    </div>
+                                    <p style="margin-top:4px; font-size:10px;">WhatsApp</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Modal for showing/copying the link -->
-<div class="modal fade" id="linkModal" tabindex="-1" aria-labelledby="linkModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="linkModalLabel">Shareable Link</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <input type="text" class="form-control" id="shareableLink" readonly>
-        <button class="btn btn-secondary mt-2" onclick="copyLink()">Copy Link</button>
-      </div>
+    <div class="modal fade" id="linkModal" tabindex="-1" aria-labelledby="linkModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="linkModalLabel">Shareable Link</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" id="shareableLink" readonly>
+                    <button class="btn btn-secondary mt-2" onclick="copyLink()">Copy Link</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
     <script>
         // Template switching
-        document.getElementById('templateSelector').addEventListener('change', function() {
-            let selected = this.value;
-            document.querySelectorAll('.template-preview').forEach(el => el.classList.add('d-none'));
-            document.getElementById('template' + selected).classList.remove('d-none');
-            document.getElementById('selected_template').value = selected;
-            updatePreview();
-        });
+        // Template switching for two dropdowns
+document.getElementById('tabletTemplateSelector').addEventListener('change', function() {
+    let selected = this.value;
+    document.getElementById('mobileTemplateSelector').selectedIndex = -1; // Deselect mobile
+    document.querySelectorAll('.template-preview').forEach(el => el.classList.add('d-none'));
+    document.getElementById('template' + selected).classList.remove('d-none');
+    document.getElementById('selected_template').value = selected;
+    updatePreview();
+});
+document.getElementById('mobileTemplateSelector').addEventListener('change', function() {
+    let selected = this.value;
+    document.getElementById('tabletTemplateSelector').selectedIndex = -1; // Deselect tablet
+    document.querySelectorAll('.template-preview').forEach(el => el.classList.add('d-none'));
+    document.getElementById('template' + selected).classList.remove('d-none');
+    document.getElementById('selected_template').value = selected;
+    updatePreview();
+});
+// Set default selection
+document.getElementById('tabletTemplateSelector').value = -1;
+document.getElementById('mobileTemplateSelector').selectedIndex = -1;
 
         function updatePreview() {
             const name = document.getElementById('name').value || 'Your Name';
@@ -1061,37 +1158,54 @@
                     visibleTemplate.querySelectorAll(`.link${capitalize(network)}`).forEach(a => {
                         if (url) {
                             a.href = url.startsWith('http') ? url : 'http://' + url;
-                            a.style.display = (visibleTemplate.id === 'template4') ? 'flex' : 'inline-block';
+                            a.style.display = (visibleTemplate.id === 'template4') ? 'flex' :
+                            'inline-block';
                         } else {
                             a.style.display = 'none';
                             a.href = '#';
                         }
                     });
                 });
-            } else if (["template1","template2","template3"].includes(visibleTemplate.id)) {
-        // --- Templates 1, 2, 3: Show/hide social icons based on input ---
-        ['linkedin', 'twitter', 'instagram', 'facebook'].forEach(network => {
-            const urlInput = document.querySelector(`input[name="${network}"]`);
-            const url = urlInput ? urlInput.value.trim() : '';
-            visibleTemplate.querySelectorAll(`.link${capitalize(network)}`).forEach(a => {
-                if (url) {
-                    a.href = url.startsWith('http') ? url : 'http://' + url;
-                    a.style.display = 'inline-block';
-                } else {
-                    a.style.display = 'none';
-                    a.href = '#';
-                }
-            });
-        });
-    }
+            } else if (["template1", "template2", "template3"].includes(visibleTemplate.id)) {
+                // --- Templates 1, 2, 3: Show/hide social icons based on input ---
+                ['linkedin', 'twitter', 'instagram', 'facebook'].forEach(network => {
+                    const urlInput = document.querySelector(`input[name="${network}"]`);
+                    const url = urlInput ? urlInput.value.trim() : '';
+                    visibleTemplate.querySelectorAll(`.link${capitalize(network)}`).forEach(a => {
+                        if (url) {
+                            a.href = url.startsWith('http') ? url : 'http://' + url;
+                            a.style.display = 'inline-block';
+                        } else {
+                            a.style.display = 'none';
+                            a.href = '#';
+                        }
+                    });
+                });
+            }
 
             // --- Update text fields ---
             const nameElem = visibleTemplate.querySelector('.previewName');
             if (nameElem) nameElem.textContent = name;
             const companyElem = visibleTemplate.querySelector('.previewCompany');
             if (companyElem) companyElem.textContent = company;
-            const sloganElem = visibleTemplate.querySelector('.previewSlogan b') || visibleTemplate.querySelector('.previewSlogan');
+            const sloganElem = visibleTemplate.querySelector('.previewSlogan b') || visibleTemplate.querySelector(
+                '.previewSlogan');
             if (sloganElem) sloganElem.textContent = slogan;
+
+           // --- Update contact fields for templates 1, 2, 3 only ---
+if (["template1", "template2", "template3"].includes(visibleTemplate.id)) {
+    const mobileElem = visibleTemplate.querySelector('.previewMobile');
+    if (mobileElem) mobileElem.textContent = mobile;
+
+    const emailElem = visibleTemplate.querySelector('.previewEmail');
+    if (emailElem) emailElem.textContent = email;
+
+    const addressElem = visibleTemplate.querySelector('.previewAddress');
+    if (addressElem) addressElem.textContent = address;
+
+    const websiteElem = visibleTemplate.querySelector('.previewWebsite');
+    if (websiteElem) websiteElem.textContent = website;
+}
 
             // --- QR code preview (profile image) ---
             const qrImg = visibleTemplate.querySelector('.previewQR');
@@ -1132,49 +1246,49 @@
         updatePreview();
 
         function setFormAction(type) {
-    var form = document.getElementById('profileForm');
-    document.getElementById('action_type').value = type;
-    if(type === 'pdf') {
-        form.action = "{{ route('pdf') }}";
-    }
-}
+            var form = document.getElementById('profileForm');
+            document.getElementById('action_type').value = type;
+            if (type === 'pdf') {
+                form.action = "{{ route('pdf') }}";
+            }
+        }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const getLinkBtn = document.getElementById('getLinkBtn');
-    if(getLinkBtn) {
-        getLinkBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const form = document.getElementById('profileForm');
-            const formData = new FormData(form);
-            formData.set('action_type', 'link');
-            fetch("{{ route('card.share') }}", {
-                method: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
-                    'X-Requested-With': 'XMLHttpRequest'
-                },
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if(data.link) {
-                    document.getElementById('shareableLink').value = data.link;
-                    var modal = new bootstrap.Modal(document.getElementById('linkModal'));
-                    modal.show();
-                } else {
-                    alert('Failed to generate link.');
-                }
-            })
-            .catch(() => alert('Error generating link.'));
+        document.addEventListener('DOMContentLoaded', function() {
+            const getLinkBtn = document.getElementById('getLinkBtn');
+            if (getLinkBtn) {
+                getLinkBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const form = document.getElementById('profileForm');
+                    const formData = new FormData(form);
+                    formData.set('action_type', 'link');
+                    fetch("{{ route('card.share') }}", {
+                            method: 'POST',
+                            headers: {
+                                'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                                'X-Requested-With': 'XMLHttpRequest'
+                            },
+                            body: formData
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.link) {
+                                document.getElementById('shareableLink').value = data.link;
+                                var modal = new bootstrap.Modal(document.getElementById('linkModal'));
+                                modal.show();
+                            } else {
+                                alert('Failed to generate link.');
+                            }
+                        })
+                        .catch(() => alert('Error generating link.'));
+                });
+            }
         });
-    }
-});
 
-function copyLink() {
-    var linkInput = document.getElementById('shareableLink');
-    linkInput.select();
-    linkInput.setSelectionRange(0, 99999);
-    document.execCommand('copy');
-}
+        function copyLink() {
+            var linkInput = document.getElementById('shareableLink');
+            linkInput.select();
+            linkInput.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+        }
     </script>
 @endsection

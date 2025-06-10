@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{--  @extends('layouts.app')
 
 @section('content')
 <div class="container mt-5">
@@ -11,7 +11,7 @@
                         $template = $data['selected_template'] ?? '1';
                     @endphp
                     @if($template == '1')
-                        {{-- Template 1 preview here --}}
+                         Template 1 preview here 
                         <div class="alert alert-info">Template 1 Preview (fill with your template 1 HTML)</div>
                         <strong>Name:</strong> {{ $data['name'] ?? '' }}<br>
                         <strong>Company:</strong> {{ $data['company'] ?? '' }}<br>
@@ -25,7 +25,7 @@
                         <strong>Instagram:</strong> {{ $data['instagram'] ?? '' }}<br>
                         <strong>Facebook:</strong> {{ $data['facebook'] ?? '' }}<br>
                     @elseif($template == '2')
-                        {{-- Template 2 preview here --}}
+                        Template 2 preview here
                         <div class="alert alert-info">Template 2 Preview (fill with your template 2 HTML)</div>
                         <strong>Name:</strong> {{ $data['name'] ?? '' }}<br>
                         <strong>Company:</strong> {{ $data['company'] ?? '' }}<br>
@@ -39,7 +39,7 @@
                         <strong>Instagram:</strong> {{ $data['instagram'] ?? '' }}<br>
                         <strong>Facebook:</strong> {{ $data['facebook'] ?? '' }}<br>
                     @elseif($template == '3')
-                        {{-- Template 3 preview here --}}
+                        Template 3 preview here
                         <div class="alert alert-info">Template 3 Preview (fill with your template 3 HTML)</div>
                         <strong>Name:</strong> {{ $data['name'] ?? '' }}<br>
                         <strong>Company:</strong> {{ $data['company'] ?? '' }}<br>
@@ -53,7 +53,7 @@
                         <strong>Instagram:</strong> {{ $data['instagram'] ?? '' }}<br>
                         <strong>Facebook:</strong> {{ $data['facebook'] ?? '' }}<br>
                     @elseif($template == '4')
-                        {{-- Template 4 preview here --}}
+                        Template 4 preview here
                         <div class="alert alert-info">Template 4 Preview (fill with your template 4 HTML)</div>
                         <strong>Name:</strong> {{ $data['name'] ?? '' }}<br>
                         <strong>Company:</strong> {{ $data['company'] ?? '' }}<br>
@@ -67,7 +67,7 @@
                         <strong>Instagram:</strong> {{ $data['instagram'] ?? '' }}<br>
                         <strong>Facebook:</strong> {{ $data['facebook'] ?? '' }}<br>
                     @elseif($template == '5')
-                        {{-- Template 5 preview here --}}
+                        Template 5 preview here
                         <div class="alert alert-info">Template 5 Preview (fill with your template 5 HTML)</div>
                         <strong>Name:</strong> {{ $data['name'] ?? '' }}<br>
                         <strong>Company:</strong> {{ $data['company'] ?? '' }}<br>
@@ -98,4 +98,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection  --}}

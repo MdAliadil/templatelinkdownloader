@@ -42,7 +42,7 @@ Route::middleware(['auth', 'role:super-admin'])->group(function () {
 
 
 Route::get('/', function () {
-    return view('templates.5');
+    return view('welcome');
 })->name('welcomedashboard');
 
 Route::get('/dashboard', function () {
